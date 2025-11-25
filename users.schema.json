@@ -1,0 +1,51 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.com/schemas/users.schema.json",
+  "title": "User",
+  "description": "Schema for a user document in the Firestore 'users' collection.",
+  "type": "object",
+  "properties": {
+    "email": {
+      "type": "string",
+      "format": "email",
+      "description": "User's email address."
+    },
+    "display_name": {
+      "type": "string",
+      "description": "User's display name."
+    },
+    "photo_url": {
+      "type": "string",
+      "format": "uri",
+      "description": "Image path / URL to the user's profile photo."
+    },
+    "created_time": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Timestamp when the user document was created, stored as a Firestore timestamp and represented as an ISO 8601 string."
+    },
+    "uid": {
+      "type": "string",
+      "description": "Firebase Auth UID / primary identifier for the user."
+    },
+    "phone_number": {
+      "type": "string",
+      "description": "User's phone number as a string."
+    },
+    "organizationRef": {
+      "type": "string",
+      "description": "Document reference to an organization document (e.g. 'organizations/{orgId}')."
+    },
+    "role": {
+      "type": "string",
+      "description": "Role of the user within the organization or app (e.g. 'admin', 'member', etc.)."
+    }
+  },
+  "required": [
+    "email",
+    "display_name",
+    "created_time",
+    "uid"
+  ],
+  "additionalProperties": false
+}
