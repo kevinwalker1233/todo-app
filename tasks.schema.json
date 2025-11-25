@@ -1,0 +1,47 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.com/schemas/tasks.schema.json",
+  "title": "Task",
+  "description": "Schema for a task document in the Firestore 'tasks' collection.",
+  "type": "object",
+  "properties": {
+    "title": {
+      "type": "string",
+      "description": "Short title of the task."
+    },
+    "description": {
+      "type": "string",
+      "description": "Detailed description of the task."
+    },
+    "completed": {
+      "type": "boolean",
+      "description": "Whether the task is completed."
+    },
+    "created_time": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Timestamp when the task was created, stored as a Firestore timestamp and represented as an ISO 8601 string."
+    },
+    "due_date": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Optional due date for the task."
+    },
+    "user_uid": {
+      "type": "string",
+      "description": "UID of the user (from the users collection) who owns this task."
+    },
+    "priority": {
+      "type": "string",
+      "description": "Optional priority flag for the task.",
+      "enum": ["low", "medium", "high"],
+      "default": "medium"
+    }
+  },
+  "required": [
+    "title",
+    "completed",
+    "created_time"
+  ],
+  "additionalProperties": false
+}
